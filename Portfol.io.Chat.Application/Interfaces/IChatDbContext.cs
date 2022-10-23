@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Portfol.io.Chat.Models;
+using Portfol.io.Chat.Domain;
 
-namespace Portfol.io.Chat.Data
+namespace Portfol.io.Chat.Application.Interfaces
 {
     public interface IChatDbContext
     {

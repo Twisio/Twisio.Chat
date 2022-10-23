@@ -3,7 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32825.248
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Portfol.io.Chat", "Portfol.io.Chat\Portfol.io.Chat.csproj", "{22F33278-5CB5-4AFC-8B55-97AD42BA3859}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Portfol.io.Chat.API", "Portfol.io.Chat\Portfol.io.Chat.API.csproj", "{22F33278-5CB5-4AFC-8B55-97AD42BA3859}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Portfol.io.Chat.Domain", "Portfol.io.Chat.Domain\Portfol.io.Chat.Domain.csproj", "{51DBA6D4-F168-47FC-AD40-B22D46676875}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Portfol.io.Chat.Application", "Portfol.io.Chat.Application\Portfol.io.Chat.Application.csproj", "{DB295FAD-C082-4D1B-A927-B93E1D5DD519}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Portfol.io.Chat.Persistence", "Portfol.io.Chat.DataAccessLayer\Portfol.io.Chat.Persistence.csproj", "{087CA7ED-6E73-4186-8FB6-9462439EF206}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +21,18 @@ Global
 		{22F33278-5CB5-4AFC-8B55-97AD42BA3859}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{22F33278-5CB5-4AFC-8B55-97AD42BA3859}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{22F33278-5CB5-4AFC-8B55-97AD42BA3859}.Release|Any CPU.Build.0 = Release|Any CPU
+		{51DBA6D4-F168-47FC-AD40-B22D46676875}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51DBA6D4-F168-47FC-AD40-B22D46676875}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51DBA6D4-F168-47FC-AD40-B22D46676875}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51DBA6D4-F168-47FC-AD40-B22D46676875}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DB295FAD-C082-4D1B-A927-B93E1D5DD519}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB295FAD-C082-4D1B-A927-B93E1D5DD519}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB295FAD-C082-4D1B-A927-B93E1D5DD519}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB295FAD-C082-4D1B-A927-B93E1D5DD519}.Release|Any CPU.Build.0 = Release|Any CPU
+		{087CA7ED-6E73-4186-8FB6-9462439EF206}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{087CA7ED-6E73-4186-8FB6-9462439EF206}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{087CA7ED-6E73-4186-8FB6-9462439EF206}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{087CA7ED-6E73-4186-8FB6-9462439EF206}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
