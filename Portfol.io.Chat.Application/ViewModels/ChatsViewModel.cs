@@ -2,6 +2,6 @@
 {
     public class ChatsViewModel
     {
-        public IEnumerable<ChatLookupDto>? Chats { get; set; }
+        public List<ChatLookupDto>? Chats { get; set; }
     }
 }

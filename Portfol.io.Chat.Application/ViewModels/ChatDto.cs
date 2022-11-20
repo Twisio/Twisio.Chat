@@ -14,11 +14,11 @@ namespace Portfol.io.Chat.Application.ViewModels
 
         public void Mapping(Profile profile)
         {
-            profile.CreateMap<AppChat, ChatLookupDto>()
+            profile.CreateMap<AppChat, ChatDto>()
                 .ForMember(lookup => lookup.Id, opt => opt.MapFrom(chat => chat.Id))
                 .ForMember(lookup => lookup.UserId, opt => opt.MapFrom(chat => chat.UserId))
                 .ForMember(lookup => lookup.CompanionId, opt => opt.MapFrom(chat => chat.CompanionId))
-                .ForMember(lookup => lookup.Message, opt => opt.MapFrom(chat => chat.Messages));
+                .ForMember(lookup => lookup.Messages, opt => opt.MapFrom(chat => chat.Messages));
         }
     }
 }

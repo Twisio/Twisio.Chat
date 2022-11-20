@@ -7,7 +7,6 @@ namespace Portfol.io.Chat.Domain
         public Guid Id { get; set; }
         [JsonIgnore]
         public Guid ChatId { get; set; }
-        [JsonIgnore]
         public Guid UserId { get; set; }
         public string Text { get; set; } = null!;
         public DateTime Date { get; set; }

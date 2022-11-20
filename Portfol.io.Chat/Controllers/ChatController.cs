@@ -20,13 +20,13 @@ namespace Portfol.io.Chat.API.Controllers
         }
 
         [HttpGet("getChat")]
-        public async Task<IActionResult> GetChat(Guid companionId)
+        public async Task<IActionResult> GetChat(Guid chatId)
         {
             try
             {
-                if (companionId == Guid.Empty) return BadRequest(new { message = "CompanionId is required" });
+                if (chatId == Guid.Empty) return BadRequest(new { message = "CompanionId is required" });
 
-                var result = await _repository.GetChat(companionId, UserId);
+                var result = await _repository.GetChat(chatId, UserId);
 
                 return Ok(result);
             }
@@ -72,14 +72,14 @@ namespace Portfol.io.Chat.API.Controllers
         }*/
         //TODO: Сообщения приходят только одному юзеру
         [HttpPost("sendMessage")]
-        public async Task<IActionResult> SendMessage(string messageText, Guid receiver, Guid chatId)
+        public async Task<IActionResult> SendMessage(string messageText, Guid chatId)
         {
-            if (receiver == Guid.Empty || chatId == Guid.Empty || messageText is null) 
+            if (chatId == Guid.Empty || messageText is null) 
                 return BadRequest(new { message = "All parameters are required" });
 
             var result = await _repository.AddMessage(chatId, messageText, UserId);
 
-            await _hubContext.Clients.Users(UserId.ToString(), receiver.ToString()).SendCoreAsync("Receive", new[] { messageText });
+            await _hubContext.Clients.Group(chatId.ToString()).SendAsync("Receive", UserId, messageText);
 
             return Ok(new { messageId = result });
         }

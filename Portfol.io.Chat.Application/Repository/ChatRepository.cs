@@ -51,18 +51,18 @@ namespace Portfol.io.Chat.Application.Repository
             return chat.Id;
         }
 
-        public async Task<ChatDto> GetChat(Guid companionId, Guid userId)
+        public async Task<ChatDto> GetChat(Guid chatId, Guid userId)
         {
-            var chat = await _dbContext.Chats.FirstOrDefaultAsync(u => u.UserId == userId && u.CompanionId == companionId);
+            var chat = await _dbContext.Chats.Include(u => u.Messages).FirstOrDefaultAsync(u => (u.UserId == userId || u.CompanionId == userId) && u.Id == chatId);
 
-            if (chat is null) throw new NotFoundException(nameof(AppChat), new { userId, companionId });
+            if (chat is null) throw new NotFoundException(nameof(AppChat), new { userId, chatId });
 
             return _mapper.Map<ChatDto>(chat);
         }
 
         public async Task<ChatsViewModel> GetChats(Guid userId)
         {
-            var chats = await _dbContext.Chats.Where(u => u.UserId == userId).ProjectTo<ChatLookupDto>(_mapper.ConfigurationProvider).ToListAsync();
+            var chats = await _dbContext.Chats.Where(u => (u.UserId == userId) || (u.CompanionId == userId)).ProjectTo<ChatLookupDto>(_mapper.ConfigurationProvider).ToListAsync();
 
             if (chats.Count() == 0) throw new NotFoundException(nameof(AppChat), userId);
 
